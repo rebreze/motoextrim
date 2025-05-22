@@ -1,18 +1,31 @@
 // Функция для показа уведомления
 function showNotification() {
-    var notification = document.getElementById('success-notification');
-    notification.classList.add('show'); // Показать уведомление
-    setTimeout(function() {
-        notification.classList.remove('show'); // Скрыть уведомление через 3 секунды
-    }, 3000); // 3000 миллисекунд = 3 секунды
+    const notification = document.getElementById('success-notification');
+    notification.classList.add('show');
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
 }
 
-// Пример отправки формы
-document.getElementById('feedback-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Предотвращаем отправку формы
+// Проверка заполнения всех полей и чекбокса
+function isFormValid() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+    const agree = document.getElementById('agree').checked;
 
-    // Ваш код отправки сообщения через PHP и PHPMailer
+    return name && email && phone && message && agree;
+}
 
-    // Показать уведомление об успешной отправке
-    showNotification();
+// Обработка формы
+document.getElementById('feedback-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    if (isFormValid()) {
+        showNotification(); // Показать уведомление
+        this.reset();       // Сбросить форму
+    } else {
+        alert('Пожалуйста, заполните все поля и подтвердите согласие.');
+    }
 });

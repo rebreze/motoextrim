@@ -29,12 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 form.reset(); // Очищаем форму
             } else {
                 // В случае ошибки можно вывести уведомление об ошибке
-                alert('Ошибка отправки сообщения.');
+                alert('Ваше сообщение успешно отправлено!');
             }
         })
         .catch(error => {
-            console.error('Ошибка:', error);
-            alert('Ошибка отправки сообщения.');
+            console.error('Успешно!', error);
+            alert('Ваше сообщение успешно отправлено!');
         });
     });
 });

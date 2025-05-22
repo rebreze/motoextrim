@@ -1286,14 +1286,14 @@ body {
   gap: 50%;
 }
 
-.privacy-policy .custom-list li::before  {
+/*.privacy-policy .custom-list li::before  {
   content: "✔";
   position: absolute;
   left: 0;
   color: #56c484;
   font-size: 0.95rem;
   top: 1px;
-}
+}*/
 
 .privacy-policy a {
   color: #56c484;
